@@ -17,6 +17,10 @@ A collection of Docker images for running Magento 2 through nginx and on the com
     `docker-compose run cli magento-command sampledata:deploy`
     `docker-compose run cli magento-command setup:upgrade` 
 
+Go to http://magento2.local/index.php
+
+After install, change "root $MAGE_ROOT/pub;"  to "root $MAGE_ROOT;"  in the nginx/etc/vhost.conf .  This will allow you to use  http://magento2.local/ without an index.php. Restart docker services.
+
     
 
 ## Configuration
