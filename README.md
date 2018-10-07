@@ -2,26 +2,25 @@
 
 A collection of Docker images for running Magento 2 through nginx and on the command line.
 
-## Quick Start
+## 1. Quick Start
 
-    `cp composer.env.sample composer.env`
-    # ..put the correct tokens into composer.env
+    1. `cp composer.env.sample composer.env`  - put the correct tokens into composer.env. See "2. Configuration"   
 
-    `export MAGENTO_BASE_URL=http://magento2.local/`   - You should execute this command under the same user that launches the docker. Otherwise, the variable will not be visible.
-    `docker-compose run cli magento-installer`    -  Run this command twice if you see errors.
-    `docker-compose up -d`
-    `docker-compose restart`
+    2. `export MAGENTO_BASE_URL=http://magento2.local/`   - You should execute this command under the same user that launches the docker. Otherwise, the variable will not be visible.
+    
+    3. `docker-compose run cli magento-installer`    -  Run this command twice if you see errors.
+    4. `docker-compose up -d`
+    5. `docker-compose restart`
 
-    Run `docker inspect magento2docker_web_1`  and copy "IPAddress":
-    Paste IP address and host name into your hosts file.
-    `docker-compose run cli magento-command setup:upgrade` 
-
-Go to http://magento2.local/index.php
+    6. Run `docker inspect magento2docker_web_1`  and copy "IPAddress":
+    7. Paste IP address and host name into your hosts file.
+    8. `docker-compose run cli magento-command setup:upgrade` 
+    9.  Go to http://magento2.local/index.php
 
 After install, change "root $MAGE_ROOT/pub;"  to "root $MAGE_ROOT;"  in the nginx/etc/vhost.conf .  This will allow you to use  http://magento2.local/ without an index.php. Restart docker services.
     
 
-## Configuration
+## 2. Configuration
 
 Configuration is driven through environment variables.  A comprehensive list of the environment variables used can be found in each `Dockerfile` and the commands in each `bin/` directory.
 
@@ -40,7 +39,7 @@ Configuration is driven through environment variables.  A comprehensive list of 
 
 A sample `docker-compose.yml` is provided in this repository.
 
-## CLI Usage
+## 3. CLI Usage
 
 A number of commands are baked into the image and are available on the `$PATH`. These are:
 
