@@ -4,18 +4,15 @@ A collection of Docker images for running Magento 2 through nginx and on the com
 
 ## 1. Quick Start
 
-    1. cp composer.env.sample composer.env  - put the correct tokens into composer.env. See "2. Configuration"   
+    1. cp composer.env.sample composer.env  - put the correct tokens into composer.env. See "2. Configuration" 
 
-    2. export MAGENTO_BASE_URL=http://magento2.local/   - You should execute this command under the same user that launches the docker. Otherwise, the variable will not be visible.
-    
-    3. docker-compose run cli magento-installer    -  Run this command twice if you see errors.
-    4. docker-compose up -d
-    5. docker-compose restart
+    2. export MAGENTO_BASE_URL=http://magento2.local/   - You should execute this command under the same user that launches the docker. Otherwise, the variable will not be visible. 
+   
+    3. docker-compose up
 
-    6. Run "docker inspect magento2docker_web_1"  and copy "IPAddress":
-    7. Paste IP address and host name into your hosts file.
-    8. docker-compose run cli magento-command setup:upgrade 
-    9. Go to http://magento2.local/index.php
+    4. Run "docker inspect magento2docker_web_1"  and copy "IPAddress":
+    5. Paste IP address and host name into your hosts file.
+    6. Go to http://magento2.local/index.php
    
 Admin url is http://magento2.local/index.php/admin
 login: admin

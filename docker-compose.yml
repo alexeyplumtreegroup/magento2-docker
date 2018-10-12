@@ -74,8 +74,9 @@ services:
       - M2SETUP_ADMIN_EMAIL=dummy@gmail.com
       - M2SETUP_ADMIN_USER=admin
       - M2SETUP_ADMIN_PASSWORD=password1
-      - M2SETUP_VERSION=2.1.*
-      - M2SETUP_USE_SAMPLE_DATA=true
+      - M2SETUP_VERSION=2.2.2
+      #- M2SETUP_USE_SAMPLE_DATA=true
+    command: magento-installer
 
   cron:
     image: meanbee/magento2-php:7.0-cli
@@ -103,6 +104,6 @@ services:
       - /var/lib/mysql
 
   rabbitmq:
-      image: rabbitmq
+      image: rafakato/rabbitmq-delayed-message-exchange
       ports:
         - "5672:5672"
