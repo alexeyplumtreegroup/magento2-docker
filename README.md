@@ -69,6 +69,7 @@ curl -X POST "http://magento2.local/index.php/rest/V1/integration/admin/token" \
 Where  xxxxxxxxxxxxxxxxxx   is your token.
 
 3. Test  update/  url
-``` curl -H "Content-Type: application/json" -X PUT \
+
+`` curl -H "Content-Type: application/json" -X PUT \
 -d '{"data":{"entity_id":"1", "copywrite_info":"hello", "vpn":"0000077"}}' \
-http://magento2.local/index.php/rest/V1/product/update/  ```
+http://magento2.local/index.php/rest/V1/product/update/  ``
