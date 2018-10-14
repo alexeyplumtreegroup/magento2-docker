@@ -10,7 +10,7 @@ A collection of Docker images for running Magento 2 through nginx and on the com
    
     3. docker-compose up
 
-    4. Run "docker inspect magento2docker_web_1"  and copy "IPAddress":
+    4. Run "docker inspect magento2_web_1"  and copy "IPAddress":
     5. Paste IP address and host name into your hosts file.
     6. Go to http://magento2.local/index.php
    
@@ -56,3 +56,19 @@ Shell access to a CLI container can be triggered by running:
 
     docker-compose run cli bash
 
+# How to test API customization
+
+1. Send first request and get token
+```
+curl -X POST "http://magento2.local/index.php/rest/V1/integration/admin/token" \
+     -H "Content-Type:application/xml"  \
+     -d "<login><username>admin</username><password>password1</password></login>"
+```
+2. ``` curl -X GET "http://magento2.local/index.php/rest/V1/product/getByVPN/{vpn}" -H "Authorization: Bearer xxxxxxxxxxxxxxxxxx"  ```
+
+Where  xxxxxxxxxxxxxxxxxx   is your token.
+
+3. Test  update/  url
+``` curl -H "Content-Type: application/json" -X PUT \
+-d '{"data":{"entity_id":"1", "copywrite_info":"hello", "vpn":"0000077"}}' \
+http://magento2.local/index.php/rest/V1/product/update/  ```
