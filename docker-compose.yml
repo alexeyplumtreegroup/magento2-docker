@@ -76,9 +76,10 @@ services:
       - M2SETUP_ADMIN_USER=admin
       - M2SETUP_ADMIN_PASSWORD=password1
       - M2SETUP_VERSION=2.2.2
-      #- M2SETUP_USE_SAMPLE_DATA=true
-    command: magento-installer
-    command: magento-command setup:upgrade
+      #- M2SETUP_USE_SAMPLE_DATA=true    
+    depends_on:
+          - rabbitmq
+    command: bash -c "cd /var/www/magento && magento-installer && magento-command ce_mq:consumers:start product.update"
 
   cron:
     image: meanbee/magento2-php:7.0-cli
