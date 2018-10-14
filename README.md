@@ -71,5 +71,5 @@ Where  xxxxxxxxxxxxxxxxxx   is your token.
 3. Test  update/  url
 
 `` curl -H "Content-Type: application/json" -X PUT \
--d '{"data":{"entity_id":"1", "copywrite_info":"hello", "vpn":"0000077"}}' \
+-d '{"data":{"entity_id":"1", "copywrite_info":"hello", "store_id":"0", "vpn":"75756"}}' \
 http://magento2.local/index.php/rest/V1/product/update/  ``
